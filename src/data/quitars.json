@@ -1,0 +1,233 @@
+{
+	quitars : [
+	{
+		name : '123 Bass Guitar',
+		type : 'bass',
+		manufacturer : 'bohemian',
+		description: 'Adorable bass guitar'
+		price : '230',
+		url : 'file:///home/fertrist/work/react/music-store/src/images/bass/bass1.jpg',
+
+	},
+	{
+		name : '123 Bass Guitar',
+		type : 'bass',
+		manufacturer : 'bohemian',
+		description: 'Adorable bass guitar'
+		price : '270',
+		url : 'file:///home/fertrist/work/react/music-store/src/images/bass/bass2.jpg',
+
+	},
+	{
+		name : '123 Bass Guitar',
+		type : 'bass',
+		manufacturer : 'fender',
+		description: 'Adorable bass guitar'
+		price : '400',
+		url : 'file:///home/fertrist/work/react/music-store/src/images/bass/bass3.jpg',
+
+	},
+	{
+		name : '123 Bass Guitar',
+		type : 'bass',
+		manufacturer : 'bohemian',
+		description: 'Adorable bass guitar'
+		price : '345',
+		url : 'file:///home/fertrist/work/react/music-store/src/images/bass/bass4.jpg',
+
+	},
+	{
+		name : '123 Bass Guitar',
+		type : 'bass',
+		manufacturer : 'ibanez',
+		description: 'Adorable bass guitar'
+		price : '150',
+		url : 'file:///home/fertrist/work/react/music-store/src/images/bass/bass5.jpg',
+
+	},
+	{
+		name : '123 Bass Guitar',
+		type : 'bass',
+		manufacturer : 'stagg',
+		description: 'Adorable bass guitar'
+		price : '570',
+		url : 'file:///home/fertrist/work/react/music-store/src/images/bass/bass6.jpg',
+
+	},
+	{
+		name : '123 Bass Guitar',
+		type : 'bass',
+		manufacturer : 'yamaha',
+		description: 'Adorable bass guitar'
+		price : '210',
+		url : 'file:///home/fertrist/work/react/music-store/src/images/bass/bass7.jpg',
+
+	},	
+	{
+		name : '123 Bass Guitar',
+		type : 'bass',
+		manufacturer : 'yamaha',
+		description: 'Adorable bass guitar'
+		price : '430',
+		url : 'file:///home/fertrist/work/react/music-store/src/images/bass/bass8.jpg',
+	},
+
+
+
+
+	{
+		name : '234 Acoustic Guitar',
+		type : 'acoustic',
+		manufacturer : 'bohemian',
+		description: 'Adorable acoustic guitar'
+		price : '230',
+		url : 'file:///home/fertrist/work/react/music-store/src/images/acoutsic/acoustic1.jpg',
+	},
+	{
+		name : '234 Acoustic Guitar',
+		type : 'acoustic',
+		manufacturer : 'fender',
+		description: 'Adorable acoustic guitar'
+		price : '280',
+		url : 'file:///home/fertrist/work/react/music-store/src/images/acoutsic/acoustic2.jpg',
+	},
+	{
+		name : '234 Acoustic Guitar',
+		type : 'acoustic',
+		manufacturer : 'fender',
+		description: 'Adorable acoustic guitar'
+		price : '190',
+		url : 'file:///home/fertrist/work/react/music-store/src/images/acoutsic/acoustic3.jpg',
+	},
+	{
+		name : '234 Acoustic Guitar',
+		type : 'acoustic',
+		manufacturer : 'ibanez',
+		description: 'Adorable acoustic guitar'
+		price : '170',
+		url : 'file:///home/fertrist/work/react/music-store/src/images/acoutsic/acoustic4.jpg',
+	},
+	{
+		name : '234 Acoustic Guitar',
+		type : 'acoustic',
+		manufacturer : 'ibanez',
+		description: 'Adorable acoustic guitar'
+		price : '220',
+		url : 'file:///home/fertrist/work/react/music-store/src/images/acoutsic/acoustic5.jpg',
+	},
+	{
+		name : '234 Acoustic Guitar',
+		type : 'acoustic',
+		manufacturer : 'stagg',
+		description: 'Adorable acoustic guitar'
+		price : '410',
+		url : 'file:///home/fertrist/work/react/music-store/src/images/acoutsic/acoustic6.jpg',
+	},
+	{
+		name : '234 Acoustic Guitar',
+		type : 'acoustic',
+		manufacturer : 'stagg',
+		description: 'Adorable acoustic guitar'
+		price : '120',
+		url : 'file:///home/fertrist/work/react/music-store/src/images/acoutsic/acoustic7.jpg',
+	},
+	{
+		name : '234 Acoustic Guitar',
+		type : 'acoustic',
+		manufacturer : 'yamaha',
+		description: 'Adorable acoustic guitar'
+		price : '130',
+		url : 'file:///home/fertrist/work/react/music-store/src/images/acoutsic/acoustic8.jpg',
+	},
+
+
+
+
+	{
+		name : '234 Electric Guitar',
+		type : 'electric',
+		manufacturer : 'bohemian',
+		description: 'Adorable electric guitar'
+		price : '230',
+		url : 'file:///home/fertrist/work/react/music-store/src/images/electric/electric1.jpg',
+	},
+	{
+		name : '234 Electric Guitar',
+		type : 'electric',
+		manufacturer : 'bohemian',
+		description: 'Adorable electric guitar'
+		price : '330',
+		url : 'file:///home/fertrist/work/react/music-store/src/images/electric/electric2.jpg',
+	},
+	{
+		name : '234 Electric Guitar',
+		type : 'electric',
+		manufacturer : 'fender',
+		description: 'Adorable electric guitar'
+		price : '130',
+		url : 'file:///home/fertrist/work/react/music-store/src/images/electric/electric3.jpg',
+	},
+	{
+		name : '234 Electric Guitar',
+		type : 'electric',
+		manufacturer : 'fender',
+		description: 'Adorable electric guitar'
+		price : '150',
+		url : 'file:///home/fertrist/work/react/music-store/src/images/electric/electric4.jpg',
+	},
+	{
+		name : '234 Electric Guitar',
+		type : 'electric',
+		manufacturer : 'yamaha',
+		description: 'Adorable electric guitar'
+		price : '125',
+		url : 'file:///home/fertrist/work/react/music-store/src/images/electric/electric5.jpg',
+	},
+	{
+		name : '234 Electric Guitar',
+		type : 'electric',
+		manufacturer : 'yamaha',
+		description: 'Adorable electric guitar'
+		price : '175',
+		url : 'file:///home/fertrist/work/react/music-store/src/images/electric/electric6.jpg',
+	},
+	{
+		name : '234 Electric Guitar',
+		type : 'electric',
+		manufacturer : 'ibanez',
+		description: 'Adorable electric guitar'
+		price : '470',
+		url : 'file:///home/fertrist/work/react/music-store/src/images/electric/electric7.jpg',
+	},
+	{
+		name : '234 Electric Guitar',
+		type : 'electric',
+		manufacturer : 'ibanez',
+		description: 'Adorable electric guitar'
+		price : '630',
+		url : 'file:///home/fertrist/work/react/music-store/src/images/electric/electric8.jpg',
+	},
+	{
+		name : '234 Electric Guitar',
+		type : 'electric',
+		manufacturer : 'stagg',
+		description: 'Adorable electric guitar'
+		price : '120',
+		url : 'file:///home/fertrist/work/react/music-store/src/images/electric/electric9.jpg',
+	},
+	{
+		name : '234 Electric Guitar',
+		type : 'electric',
+		manufacturer : 'stagg',
+		description: 'Adorable electric guitar'
+		price : '600',
+		url : 'file:///home/fertrist/work/react/music-store/src/images/electric/electric10.jpg',
+	},
+
+
+
+	],
+	manufacturers : ['bohemian', 'fender', 'ibanez', 'stagg', yamaha],
+
+	types : ['acoustic', 'electric', 'bass'],
+}
