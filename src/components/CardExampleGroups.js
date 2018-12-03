@@ -1,78 +1,47 @@
 import React from 'react'
-import { Button, Card, Image, Icon } from 'semantic-ui-react'
+import { Button, Card, Image, Icon, Label, Header, Container } from 'semantic-ui-react'
+import { connect } from 'react-redux'
+import { addItemsToCart } from '../actions'
 
-const CardExampleGroups = () => (
-  <Card.Group>
-    <Card>
-      <Card.Content>
-        <Image floated='right' size='mini' src='/images/avatar/large/steve.jpg' />
-        <Card.Header>Steve Sanders</Card.Header>
-        <Card.Description>
-          Steve wants to add you to the group <strong>best friends</strong>
-        </Card.Description>
-      </Card.Content>
-      <Card.Content extra>
-        <div className='ui two buttons'>
-          <Button basic color='green'>
-            Approve
-          </Button>
-          <Button basic color='red'>
-            Decline
-          </Button>
-        </div>
-      </Card.Content>
-    </Card>
-    <Card>
-      <Card.Content>
-        <Image floated='right' size='mini' src='/images/avatar/large/molly.png' />
-        <Card.Header>Molly Thomas</Card.Header>
-        <Card.Description>
-          Molly wants to add you to the group <strong>musicians</strong>
-        </Card.Description>
-      </Card.Content>
-      <Card.Content extra>
-        <div className='ui two buttons'>
-          <Button basic color='green'>
-            Approve
-          </Button>
-        </div>
-      </Card.Content>
-    </Card>
-    <Card>
-      <Card.Content>
-        <Image floated='right' size='mini' src='/images/avatar/large/jenny.jpg' />
-        <Card.Header>Jenny Lawrence</Card.Header>
-        <Card.Description>Jenny requested permission to view your contact details</Card.Description>
-      </Card.Content>
-      <Card.Content extra>
-        <div className='ui two buttons'>
-          <Button basic color='red'>
-            Decline
-          </Button>
-          <Button basic color='green'>
-            <Icon name='cart arrow down'/>
-          </Button>
-        </div>
-      </Card.Content>
-    </Card>
-    <Card>
-      <Card.Content>
-        <Image floated='right' size='mini' src='/images/avatar/large/jenny.jpg' />
-        <Card.Header>Jenny Lawrence</Card.Header>
-        <Card.Description>Jenny requested permission to view your contact details</Card.Description>
-      </Card.Content>
-      <Card.Content extra>
-        <div className='ui two buttons'>
-          <Button basic color='green'>
-            Approve
-          </Button>
-          <Button basic color='red'>
-            Decline
-          </Button>
-        </div>
-      </Card.Content>
-    </Card>
+const CardGroups = ({ 
+  guitars,
+  addToCart
+}) => (
+  <Card.Group centered>
+  {
+    guitars.map(guitar => {
+          return (
+          <Card key={guitar.id}>
+            <Card.Content>
+              <Card.Header>{guitar.name}</Card.Header>
+              <Image src={guitar.url} size='small' />
+              <Card.Description>{guitar.description}</Card.Description>
+            </Card.Content>
+            <Card.Content extra>
+            <Icon.Group>
+              <span>
+                <Icon name='cart arrow down' size='large'/>
+              </span>  
+              <span floated='left'>
+                <Icon name='dollar sign' size='large'>{guitar.price}</Icon>
+              </span>
+            </Icon.Group>
+            </Card.Content>
+          </Card>
+        )
+      })
+  }
   </Card.Group>
 )
 
-export default CardExampleGroups
+const mapStateToProps = state => ({
+  guitars: state.guitars,
+  items : state.items
+})
+
+const mapDispatchToProps = dispatch => ({
+  addToCart: (guitar) => dispatch(addItemsToCart(guitar, 1))
+})
+
+export default connect(mapStateToProps)
+(CardGroups)

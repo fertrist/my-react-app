@@ -1,0 +1,254 @@
+{
+	"guitars" : 
+	[
+		{
+			"id" : "1",
+			"name" : "123 Bass Guitar",
+			"type" : "bass",
+			"manufacturer" : "bohemian",
+			"description": "Adorable bass guitar",
+			"price" : "230",
+			"url" : "/images/bass/bass1.jpg"
+
+		},
+		{
+			"id" : "2",
+			"name" : "123 Bass Guitar",
+			"type" : "bass",
+			"manufacturer" : "bohemian",
+			"description": "Adorable bass guitar",
+			"price" : "270",
+			"url" : "/images/bass/bass2.jpg"
+
+		},
+		{
+			"id" : "3",
+			"name" : "123 Bass Guitar",
+			"type" : "bass",
+			"manufacturer" : "fender",
+			"description": "Adorable bass guitar",
+			"price" : "400",
+			"url" : "/images/bass/bass3.jpg"
+
+		},
+		{
+			"id" : "4",
+			"name" : "123 Bass Guitar",
+			"type" : "bass",
+			"manufacturer" : "bohemian",
+			"description": "Adorable bass guitar",
+			"price" : "345",
+			"url" : "/images/bass/bass4.jpg"
+
+		},
+		{
+			"id" : "5",
+			"name" : "123 Bass Guitar",
+			"type" : "bass",
+			"manufacturer" : "ibanez",
+			"description": "Adorable bass guitar",
+			"price" : "150",
+			"url" : "/images/bass/bass5.jpg"
+
+		},
+		{
+			"id" : "6",
+			"name" : "123 Bass Guitar",
+			"type" : "bass",
+			"manufacturer" : "stagg",
+			"description": "Adorable bass guitar",
+			"price" : "570",
+			"url" : "/images/bass/bass6.jpg"
+
+		},
+		{
+			"id" : "7",
+			"name" : "123 Bass Guitar",
+			"type" : "bass",
+			"manufacturer" : "yamaha",
+			"description": "Adorable bass guitar",
+			"price" : "210",
+			"url" : "/images/bass/bass7.jpg"
+
+		},	
+		{
+			"id" : "8",
+			"name" : "123 Bass Guitar",
+			"type" : "bass",
+			"manufacturer" : "yamaha",
+			"description": "Adorable bass guitar",
+			"price" : "430",
+			"url" : "/images/bass/bass8.jpg"
+		},
+
+
+
+
+		{
+			"id" : "9",
+			"name" : "234 Acoustic Guitar",
+			"type" : "acoustic",
+			"manufacturer" : "bohemian",
+			"description": "Adorable acoustic guitar",
+			"price" : "230",
+			"url" : "/images/acoustic/acoustic1.jpg"
+		},
+		{
+			"id" : "10",
+			"name" : "234 Acoustic Guitar",
+			"type" : "acoustic",
+			"manufacturer" : "fender",
+			"description": "Adorable acoustic guitar",
+			"price" : "280",
+			"url" : "/images/acoustic/acoustic2.jpg"
+		},
+		{
+			"id" : "11",
+			"name" : "234 Acoustic Guitar",
+			"type" : "acoustic",
+			"manufacturer" : "fender",
+			"description": "Adorable acoustic guitar",
+			"price" : "190",
+			"url" : "/images/acoustic/acoustic3.jpg"
+		},
+		{
+			"id" : "12",
+			"name" : "234 Acoustic Guitar",
+			"type" : "acoustic",
+			"manufacturer" : "ibanez",
+			"description": "Adorable acoustic guitar",
+			"price" : "170",
+			"url" : "/images/acoustic/acoustic4.jpg"
+		},
+		{
+			"id" : "13",
+			"name" : "234 Acoustic Guitar",
+			"type" : "acoustic",
+			"manufacturer" : "ibanez",
+			"description": "Adorable acoustic guitar",
+			"price" : "220",
+			"url" : "/images/acoustic/acoustic5.jpg"
+		},
+		{
+			"id" : "14",
+			"name" : "234 Acoustic Guitar",
+			"type" : "acoustic",
+			"manufacturer" : "stagg",
+			"description": "Adorable acoustic guitar",
+			"price" : "410",
+			"url" : "/images/acoustic/acoustic6.jpg"
+		},
+		{
+			"id" : "15",
+			"name" : "234 Acoustic Guitar",
+			"type" : "acoustic",
+			"manufacturer" : "stagg",
+			"description": "Adorable acoustic guitar",
+			"price" : "120",
+			"url" : "/images/acoustic/acoustic7.jpg"
+		},
+		{
+			"id" : "16",
+			"name" : "234 Acoustic Guitar",
+			"type" : "acoustic",
+			"manufacturer" : "yamaha",
+			"description": "Adorable acoustic guitar",
+			"price" : "130",
+			"url" : "/images/acoustic/acoustic8.jpg"
+		},
+		{
+			"id" : "17",
+			"name" : "234 Electric Guitar",
+			"type" : "electric",
+			"manufacturer" : "bohemian",
+			"description": "Adorable electric guitar",
+			"price" : "230",
+			"url" : "/images/electric/electric1.jpg"
+		},
+		{
+			"id" : "18",
+			"name" : "234 Electric Guitar",
+			"type" : "electric",
+			"manufacturer" : "bohemian",
+			"description": "Adorable electric guitar",
+			"price" : "330",
+			"url" : "/images/electric/electric2.jpg"
+		},
+		{
+			"id" : "19",
+			"name" : "234 Electric Guitar",
+			"type" : "electric",
+			"manufacturer" : "fender",
+			"description": "Adorable electric guitar",
+			"price" : "130",
+			"url" : "/images/electric/electric3.jpg"
+		},
+		{
+			"id" : "20",
+			"name" : "234 Electric Guitar",
+			"type" : "electric",
+			"manufacturer" : "fender",
+			"description": "Adorable electric guitar",
+			"price" : "150",
+			"url" : "/images/electric/electric4.jpg"
+		},
+		{
+			"id" : "21",
+			"name" : "234 Electric Guitar",
+			"type" : "electric",
+			"manufacturer" : "yamaha",
+			"description": "Adorable electric guitar",
+			"price" : "125",
+			"url" : "/images/electric/electric5.jpg"
+		},
+		{
+			"id" : "22",
+			"name" : "234 Electric Guitar",
+			"type" : "electric",
+			"manufacturer" : "yamaha",
+			"description": "Adorable electric guitar",
+			"price" : "175",
+			"url" : "/images/electric/electric6.jpg"
+		},
+		{
+			"id" : "23",
+			"name" : "234 Electric Guitar",
+			"type" : "electric",
+			"manufacturer" : "ibanez",
+			"description": "Adorable electric guitar",
+			"price" : "470",
+			"url" : "/images/electric/electric7.jpg"
+		},
+		{
+			"id" : "24",
+			"name" : "234 Electric Guitar",
+			"type" : "electric",
+			"manufacturer" : "ibanez",
+			"description": "Adorable electric guitar",
+			"price" : "630",
+			"url" : "/images/electric/electric8.jpg"
+		},
+		{
+			"id" : "25",
+			"name" : "234 Electric Guitar",
+			"type" : "electric",
+			"manufacturer" : "stagg",
+			"description": "Adorable electric guitar",
+			"price" : "120",
+			"url" : "/images/electric/electric9.jpg"
+		},
+		{
+			"id" : "26",
+			"name" : "234 Electric Guitar",
+			"type" : "electric",
+			"manufacturer" : "stagg",
+			"description": "Adorable electric guitar",
+			"price" : "600",
+			"url" : "/images/electric/electric10.jpg"
+		}
+	],
+	
+	"manufacturers" : ["bohemian", "fender", "ibanez", "stagg", "yamaha"],
+
+	"types" : ["acoustic", "electric", "bass"]
+}
