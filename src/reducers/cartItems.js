@@ -10,18 +10,17 @@ const addItemsToCart = (state, item, count) => {
   const found = false
   
   state = state.map(cartItem => {
-    if (cartItem.id !== item.id) {
-      return cartItem
-    }
     if (cartItem.id === item.id) {
       const increasedCount = cartItem.count + count
       
       return {
-        ...cartItem, 
-        count : increasedCount, 
-        price : cartItem.price * increasedCount
-      }
+              ...cartItem, 
+              count : increasedCount, 
+              price : cartItem.price * increasedCount
+            }
+    
     }
+    return cartItem
   })
 
   if (!found) {

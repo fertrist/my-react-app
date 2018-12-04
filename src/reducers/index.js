@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
 import cartItems from './cartItems'
-import guitars from './guitars'
+import filterReducer from './filter'
 
-const manufacturers = (state = [], action) => {
+const brands = (state = [], action) => {
   return state;
 }
 
@@ -24,6 +24,7 @@ const guitarsReducer = (state = {}, action) => {
 export default combineReducers({
 	items: cartItems,
 	guitars : guitarsReducer,
-	manufacturers : manufacturers,
-	types : types
+	brands : brands,
+	types : types,
+	filter : filterReducer
 })

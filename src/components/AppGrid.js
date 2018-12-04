@@ -1,6 +1,6 @@
 import React from 'react'
-import { Grid, Header, Icon, Container } from 'semantic-ui-react'
-import AccordionExampleMenu from './AccordionExampleMenu'
+import { Grid, Image } from 'semantic-ui-react'
+import AccordionMenu from './AccordionMenu'
 import MenuExamplePointing from './MenuExamplePointing'
 import CardExampleGroups from './CardExampleGroups'
 import { connect } from 'react-redux'
@@ -9,40 +9,35 @@ const AppGrid = ({
   guitars
 }) => {
   return (
-    <Grid celled>
+    <Grid>
       <Grid.Row>
         <Grid.Column width={3}>
-          Logo
+          <Image src='/images/logo.png' size='small' />
         </Grid.Column>
-        <Grid.Column width={11}>
+        <Grid.Column width={13}>
           <MenuExamplePointing />
         </Grid.Column>
-        <Grid.Column width={2}>
-          <Icon name='cart' size='big' />
-        </Grid.Column>
+        
       </Grid.Row>
 
       <Grid.Row>
         <Grid.Column width={3}>
-          <AccordionExampleMenu />
+          <AccordionMenu />
+          <Image src='/images/rock-fest-1.png' size='small' />
+          <Image src='/images/rock-fest-3.gif' size='small' />
+          <Image src='/images/acoustic-fest-2.jpeg' size='small' />
+          <Image src='/images/acoustic-fest-1.png' size='small' />
         </Grid.Column>
         
-        <Grid.Column width={11}>
-          <Container>
+        <Grid.Column width={13}>
             <CardExampleGroups />
-          </Container>
         </Grid.Column>
-
-        <Grid.Column width={2}>
-          banner
-        </Grid.Column>
+        
       </Grid.Row>
 
       <Grid.Row>
         <Grid.Column width={16}>
-          <Header textAlign='center'>
-            <p className='inner'>Footer</p>
-          </Header>
+              Footer
         </Grid.Column>
       </Grid.Row>
     </Grid>

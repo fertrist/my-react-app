@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Card, Image, Icon, Label, Header, Container } from 'semantic-ui-react'
+import { Card, Image, Icon, Button } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { addItemsToCart } from '../actions'
 
@@ -7,24 +7,26 @@ const CardGroups = ({
   guitars,
   addToCart
 }) => (
-  <Card.Group centered>
+  <Card.Group itemsPerRow={3}>
   {
     guitars.map(guitar => {
           return (
-          <Card key={guitar.id}>
+          <Card centered key={guitar.id}>
             <Card.Content>
               <Card.Header>{guitar.name}</Card.Header>
-              <Image src={guitar.url} size='small' />
+              <Image floated ='right'src={guitar.url} size='small' />
               <Card.Description>{guitar.description}</Card.Description>
             </Card.Content>
             <Card.Content extra>
             <Icon.Group>
-              <span>
-                <Icon name='cart arrow down' size='large'/>
-              </span>  
-              <span floated='left'>
-                <Icon name='dollar sign' size='large'>{guitar.price}</Icon>
-              </span>
+               <Button animated='vertical'>
+                <Button.Content hidden>
+                  <Icon name='cart arrow down'/>
+                </Button.Content>
+                <Button.Content visible>
+                  <Icon name='dollar sign'>{guitar.price}</Icon> 
+                </Button.Content>
+              </Button>
             </Icon.Group>
             </Card.Content>
           </Card>
@@ -34,14 +36,44 @@ const CardGroups = ({
   </Card.Group>
 )
 
+const showFilteredGuitars = (guitars, filter) => {
+  const filters = []
+  console.log('filtering cards by: ', filter)
+  if (filter.price) {
+    if (filter.price.min) {
+      filters.push(g => g.price >= filter.price.min)  
+    }
+    if (filter.price.max) {
+      filters.push(g => g.price <= filter.price.max)  
+    }
+  }
+  if (filter.types && filter.types.length && !filter.types.includes("all")) {
+    filters.push(g => filter.types.includes(g.type)) 
+  }
+  if (filter.brands && filter.brands.length) {
+    filters.push(g =>  filter.brands.includes(g.brand)) 
+  }
+  if (filter.nameSegment){
+    filters.push(g =>  containsNameSegment(g.name, filter.nameSegment)) 
+  }
+
+  return (filters.length === 0) ? guitars :
+    guitars.filter(g => filters
+                          .map(filter => filter(g))
+                          .every(satisfiesFilter => satisfiesFilter === true)
+                  )
+}
+
+const containsNameSegment = (name, nameSegment) => {
+  return name.toLowerCase().indexOf(nameSegment.toLowerCase()) !== -1
+}
+
 const mapStateToProps = state => ({
-  guitars: state.guitars,
+  guitars: showFilteredGuitars(state.guitars, state.filter),
   items : state.items
 })
 
 const mapDispatchToProps = dispatch => ({
   addToCart: (guitar) => dispatch(addItemsToCart(guitar, 1))
 })
-
-export default connect(mapStateToProps)
-(CardGroups)
+export default connect(mapStateToProps, mapDispatchToProps)(CardGroups)
