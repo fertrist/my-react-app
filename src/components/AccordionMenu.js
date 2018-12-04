@@ -3,30 +3,52 @@ import { Accordion, Form, Menu, Header } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { filterByTypes, filterByBrands } from '../actions'
 
-const CheckboxForm = (items, name) => {
-    console.log(items, name)
-  return (
-  <Form inverted>
+const BrandsForm = ({
+  brands, onChange
+}) => {
+  return (<Form inverted>
     <Form.Group grouped>
       {
-        items.map(item => (
+        brands.map(brand => (
             <Form.Checkbox 
-              key={item} 
-              label={item} 
-              name={name} 
-              onChange={(e, data) => console.log(data)}
+              key={brand.name} 
+              label={brand.name} 
+              name='brand' 
+              onChange={onChange}
               />      
           ))
       }
     </Form.Group>
-  </Form>)
-}
+  </Form>
+)}
+
+const TypesForm = ({
+  types, onChange
+}) => {
+  return (
+    <Form inverted>
+      <Form.Group grouped>
+        {
+          types.map(type => (
+              <Form.Checkbox 
+                key={type} 
+                label={type} 
+                name='type' 
+                onChange={onChange}
+                />      
+            ))
+        }
+      </Form.Group>
+    </Form>
+)}
+
 
 const AccordionMenu = ({
   filter,
   brands,
   types,
-  handleClick
+  handleBrandClick,
+  handleTypeClick
 }) => {
     var duration=100
     return (
@@ -38,12 +60,12 @@ const AccordionMenu = ({
 
         <Menu.Item>
           <Header inverted as='h3'>Brands</Header>
-          {CheckboxForm(brands, 'brand')}
+          {BrandsForm({brands, onChange: handleBrandClick})}
         </Menu.Item>
 
         <Menu.Item>
           <Header inverted as='h3'>Types</Header>
-          {CheckboxForm(types, 'type')}
+          {TypesForm({types, onChange: handleTypeClick})}
         </Menu.Item>
 
         <Menu.Item>
@@ -71,11 +93,11 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    handleBrandClick : (e, type) => {
-      dispatch(filterByTypes([type]))
+    handleBrandClick : (e, data, existingFilters) => {
+      dispatch(filterByTypes([...existingFilters, data.value]))
     },
-    handleTypeClick : (e, data) => {
-      dispatch(filterByBrands(data.value))
+    handleTypeClick : (e, data, existingFilters) => {
+      dispatch(filterByBrands([...existingFilters, data.value]))
     }
   }
 }

@@ -248,7 +248,28 @@
 		}
 	],
 	
-	"brands" : ["Bohemian", "Fender", "Ibanez", "Stagg", "Yamaha"],
+	"brands" : [
+		{
+			"name": "Bohemian",
+			"url" : "/images/brands/bohemian.jpg"
+		},
+		{
+			"name": "Fender",
+			"url" : "/images/brands/fender.jpg"
+		}, 
+		{
+			"name": "Ibanez",
+			"url" : "/images/brands/ibanez.jpg"
+		}, 
+		{
+			"name": "Stagg",
+			"url" : "/images/brands/stagg.jpg"
+		}, 
+		{	
+			"name": "Yamaha",
+			"url" : "/images/brands/yamaha.jpg"
+		}
+	],
 
 	"types" : ["acoustic", "electric", "bass"]
 }
