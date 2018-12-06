@@ -29,7 +29,10 @@ const MenuExamplePointing = ({
                 placeholder='Search...'
                 onChange={handleSearchTyping} />
             </Menu.Item>
-            <Button animated='vertical' secondary>
+            <Button 
+            style={{marginRight: 0}}
+            animated='vertical' 
+            secondary>
               <Button.Content hidden> 
                 Order 
               </Button.Content>

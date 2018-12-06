@@ -6,27 +6,24 @@ const toCartItem = (item, count) => {
   }
 }
 
+const updateExistingItem = (cartItem, item, count) => {
+  return {...cartItem, 
+          count : cartItem.count + count, 
+          price : cartItem.price + (item.price * count)}
+}
+
 const addItemsToCart = (state, item, count) => {
-  const found = false
-  
-  state = state.map(cartItem => {
-    if (cartItem.id === item.id) {
-      const increasedCount = cartItem.count + count
-      
-      return {
-              ...cartItem, 
-              count : increasedCount, 
-              price : cartItem.price * increasedCount
-            }
-    
+  var found = false
+
+  state = state.map(cartItem => {  
+    if (cartItem.item.id === item.id) {
+      found = true
+      return updateExistingItem(cartItem, item, count)  
     }
     return cartItem
   })
-
-  if (!found) {
-    return [...state, toCartItem(item, count)]
-  }
-  return state;
+  
+  return found ? state : [...state, toCartItem(item, count)]
 }
 
 const removeItemFromCart = (state, item, count) => {

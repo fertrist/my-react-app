@@ -1,11 +1,13 @@
 import React from 'react'
-import { Accordion, Form, Menu, Header } from 'semantic-ui-react'
+import { Accordion, Form, Menu, Header, Icon } from 'semantic-ui-react'
 import { connect } from 'react-redux'
-import { filterByTypes, filterByBrands } from '../actions'
+import { filterByType, filterByBrand, dropFilter, filterByPrices } from '../actions'
+import RangeInput from './RangeInput'
 
-const BrandsForm = ({
-  brands, onChange
+const BrandsFormPresenter = ({
+  brands, filterBrands, handleBrandClick
 }) => {
+  console.log('rerender BrandsFormPresenter')
   return (<Form inverted>
     <Form.Group grouped>
       {
@@ -13,8 +15,9 @@ const BrandsForm = ({
             <Form.Checkbox 
               key={brand.name} 
               label={brand.name} 
-              name='brand' 
-              onChange={onChange}
+              name={brand.name} 
+              checked={filterBrands.includes(brand.name)}
+              onChange={(e, data) => handleBrandClick(e, data)}
               />      
           ))
       }
@@ -22,9 +25,27 @@ const BrandsForm = ({
   </Form>
 )}
 
-const TypesForm = ({
-  types, onChange
+const mapStateToBrandFilterProps = state => {
+  return {
+    brands : state.brands,
+    filterBrands : state.filter.brands
+  }
+}
+
+const mapDispatchToBrandFilterProps = dispatch => {
+  return {
+    handleBrandClick : (e, data, checked) => {
+      dispatch(filterByBrand(data.name, data.checked))
+    }
+  }
+}
+
+const BrandsForm = connect(mapStateToBrandFilterProps, mapDispatchToBrandFilterProps)(BrandsFormPresenter)
+
+const TypesFormPresenter = ({
+  types, filterTypes, handleTypeClick
 }) => {
+  console.log('rerender TypesFormPresenter')
   return (
     <Form inverted>
       <Form.Group grouped>
@@ -33,8 +54,9 @@ const TypesForm = ({
               <Form.Checkbox 
                 key={type} 
                 label={type} 
-                name='type' 
-                onChange={onChange}
+                name={type} 
+                checked={filterTypes.includes(type)}
+                onChange={(e, data) => handleTypeClick(e, data)}
                 />      
             ))
         }
@@ -42,63 +64,90 @@ const TypesForm = ({
     </Form>
 )}
 
+const mapStateToTypeFilterProps = state => {
+  return {
+    types : state.types,
+    filterTypes: state.filter.types
+  }
+}
+
+const mapDispatchToTypeFilterProps = dispatch => {
+  return {
+    handleTypeClick : (e, data) => {
+      dispatch(filterByType(data.name, data.checked))
+    }
+  }
+}
+
+const TypesForm = connect(mapStateToTypeFilterProps, mapDispatchToTypeFilterProps)(TypesFormPresenter)
 
 const AccordionMenu = ({
-  filter,
-  brands,
-  types,
-  handleBrandClick,
-  handleTypeClick
+  filterPrice,
+  priceRange,
+  dispatchDropFilters,
+  dispatchChange
 }) => {
-    var duration=100
+    console.log('rerender AccordionMenu')
+    let rangeInput = undefined
+
     return (
       <Accordion 
         as={Menu} vertical inverted>
         <Menu.Item>
-          <Header inverted as='h3'>Filter</Header>
+          <div>
+            <Header inverted as='h3'>
+              <span>Filter</span>
+              <span style={{float: 'right'}}>
+                <Icon onClick={() => {
+                    dispatchDropFilters()
+                  }
+                } name='trash alternate'/>
+              </span>
+            </Header>
+          </div>   
         </Menu.Item>
 
         <Menu.Item>
           <Header inverted as='h3'>Brands</Header>
-          {BrandsForm({brands, onChange: handleBrandClick})}
+          <BrandsForm />
         </Menu.Item>
 
         <Menu.Item>
           <Header inverted as='h3'>Types</Header>
-          {TypesForm({types, onChange: handleTypeClick})}
+          <TypesForm />
         </Menu.Item>
 
         <Menu.Item>
-          <Form.Input
-            label={`Max price: ${duration}ms `}
-            min={100}
-            max={2000}
-            name='duration'
-            onChange={(e, { name, value }) => duration = value}
-            step={100}
-            type='range'
-            value={duration}
-          />
+          <RangeInput ref={(node) => rangeInput = node}/>
+
+
+          <RangeInput label={`Max price: $${filterPrice.max}`}
+              value={filterPrice.max}
+              priceRange={priceRange}
+              onChange={(e, data) => {
+                dispatchChange({ max : filterPrice.max})
+              }
+            }/>
         </Menu.Item>
       </Accordion>
     )
   } 
 
-const mapStateToProps = state => {
-  return {
-    brands : state.brands,
-    types : state.types
+const mapStateToProps = (state) => {
+  return { 
+    filterPrice: state.filter.price,
+    priceRange : state.priceRange
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    handleBrandClick : (e, data, existingFilters) => {
-      dispatch(filterByTypes([...existingFilters, data.value]))
+const mapDispatchToProps = (dispatch) => {
+  return { 
+    dispatchDropFilters: () => {
+      dispatch(dropFilter())
     },
-    handleTypeClick : (e, data, existingFilters) => {
-      dispatch(filterByBrands([...existingFilters, data.value]))
-    }
+    dispatchChange: (price) => {
+      dispatch(filterByPrices(price))
+    } 
   }
 }
 

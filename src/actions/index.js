@@ -18,10 +18,21 @@ export const removeAllItems = () => ({
   type: 'REMOVE_ALL',
 })
 
+export const filterByBrand = (singleBrand, checked) => ({
+  type: checked ? 'FILTER_BY_BRAND' : 'UNFILTER_BY_BRAND',
+  singleBrand
+})
+
+export const filterByType = (singleType, checked) => ({
+  type: checked ? 'FILTER_BY_TYPE' : 'UNFILTER_BY_TYPE',
+  singleType
+})
+
 export const filterByBrands = (brands) => ({
   type: 'FILTER_BY_BRANDS',
   brands
 })
+
 
 export const filterByTypes = (types) => ({
   type: 'FILTER_BY_TYPES',

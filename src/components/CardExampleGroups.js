@@ -5,7 +5,8 @@ import { addItemsToCart } from '../actions'
 
 const CardGroups = ({ 
   guitars,
-  addToCart
+  addToCart,
+  brandUrls
 }) => (
   <Card.Group itemsPerRow={3}>
   {
@@ -13,21 +14,28 @@ const CardGroups = ({
           return (
           <Card centered key={guitar.id}>
             <Card.Content>
-              <Card.Header>{guitar.name}</Card.Header>
-              <Image floated ='right'src={guitar.url} size='small' />
+              <Card.Header>
+                {guitar.name}
+              </Card.Header>
+              <Image floated ='right' src={guitar.url} size='small' />
               <Card.Description>{guitar.description}</Card.Description>
             </Card.Content>
             <Card.Content extra>
-            <Icon.Group>
-               <Button animated='vertical'>
-                <Button.Content hidden>
-                  <Icon name='cart arrow down'/>
-                </Button.Content>
-                <Button.Content visible>
-                  <Icon name='dollar sign'>{guitar.price}</Icon> 
-                </Button.Content>
-              </Button>
-            </Icon.Group>
+              <Icon.Group>
+                 <Button 
+                 onClick={(e) => {
+                  addToCart(guitar)
+                }}
+                 animated='vertical'>
+                  <Button.Content hidden>
+                    <Icon name='cart arrow down'/>
+                  </Button.Content>
+                  <Button.Content visible>
+                    <Icon name='dollar sign'>{guitar.price}</Icon> 
+                  </Button.Content>
+                </Button>
+              </Icon.Group>
+              <Image floated ='right' src={brandUrls.get(guitar.brand)} size='tiny' />
             </Card.Content>
           </Card>
         )
@@ -38,7 +46,6 @@ const CardGroups = ({
 
 const showFilteredGuitars = (guitars, filter) => {
   const filters = []
-  console.log('filtering cards by: ', filter)
   if (filter.price) {
     if (filter.price.min) {
       filters.push(g => g.price >= filter.price.min)  
@@ -68,9 +75,15 @@ const containsNameSegment = (name, nameSegment) => {
   return name.toLowerCase().indexOf(nameSegment.toLowerCase()) !== -1
 }
 
+const mapBrandsToUrl = (brands) => {
+  const brandUrls = new Map(brands.map(brand => [brand.name, brand.url]))
+  return brandUrls
+}
+
 const mapStateToProps = state => ({
   guitars: showFilteredGuitars(state.guitars, state.filter),
-  items : state.items
+  items : state.items,
+  brandUrls : mapBrandsToUrl(state.brands)
 })
 
 const mapDispatchToProps = dispatch => ({
