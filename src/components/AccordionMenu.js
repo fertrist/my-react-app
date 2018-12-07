@@ -7,7 +7,6 @@ import RangeInput from './RangeInput'
 const BrandsFormPresenter = ({
   brands, filterBrands, handleBrandClick
 }) => {
-  console.log('rerender BrandsFormPresenter')
   return (<Form inverted>
     <Form.Group grouped>
       {
@@ -45,7 +44,6 @@ const BrandsForm = connect(mapStateToBrandFilterProps, mapDispatchToBrandFilterP
 const TypesFormPresenter = ({
   types, filterTypes, handleTypeClick
 }) => {
-  console.log('rerender TypesFormPresenter')
   return (
     <Form inverted>
       <Form.Group grouped>
@@ -87,7 +85,6 @@ const AccordionMenu = ({
   dispatchDropFilters,
   dispatchChange
 }) => {
-    console.log('rerender AccordionMenu')
     let rangeInput = undefined
 
     return (

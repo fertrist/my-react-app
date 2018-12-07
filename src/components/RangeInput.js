@@ -8,7 +8,6 @@ class OldRangeInputPresenter extends Component {
   constructor(props) {
     super(props)
     this.state = {...props, currentValue: props.filterPrice.max}
-    console.log('OldRangeInputPresenter#constructor', this.state)
     
     this.handlers = {
       dispatchChange: (price) => props.dispatch(filterByPrices(price)),
@@ -17,8 +16,6 @@ class OldRangeInputPresenter extends Component {
   }
 
   render() {
-    console.log('render OldRangeInputPresenter')
-    console.log(this.state)  
     return (<Form.Input
             type='range'
             min={this.state.priceRange.min}

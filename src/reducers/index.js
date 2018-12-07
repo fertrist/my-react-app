@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import cartItems from './cartItems'
+import cart from './cartItems'
 import filterReducer from './filter'
 
 const brands = (state = [], action) => {
@@ -45,6 +45,6 @@ export default combineReducers({
 	brands : brands,
 	types : types,
 	priceRange : priceRangeReducer,
-	items: cartItems,
+	cart: cart,
 	filter : filterReducer
 })
