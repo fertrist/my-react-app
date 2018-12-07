@@ -1,7 +1,7 @@
 import React from 'react'
 import { Input, Menu, Button, Icon } from 'semantic-ui-react'
 import { connect } from 'react-redux'
-import { filterByTypes, filterByName } from '../actions'
+import { filterByTypes, filterByName, removeAllItems, dropFilter } from '../actions'
 import ScrollingModal from './ScrollingContentModal'
 
 const CartButton = ({cart}) => {
@@ -26,7 +26,9 @@ const MenuExamplePointing = ({
   cart,
   activeItem,
   handleMenuItemClick,
-  handleSearchTyping
+  handleSearchTyping,
+  dispatchDropCart,
+  dispatchDropFilter,
 }) => {
     console.log(cart)
     return (
@@ -49,16 +51,23 @@ const MenuExamplePointing = ({
                 placeholder='Search...'
                 onChange={handleSearchTyping} />
             </Menu.Item>
-            <ScrollingModal trigger={
+            <ScrollingModal 
+            cartItems={cart}
+            dispatchDropCart={dispatchDropCart}
+            dispatchDropFilter={dispatchDropFilter}
+            trigger={
               <Button style={{marginRight: 0}}
                     animated='vertical' 
-                    secondary>
+                    secondary
+                    disabled={cart.length === 0}>
                 <Button.Content visible>
                     <Icon name='cart' size='big' />
                     {cartSum(cart)}
-                </Button.Content>    
+                </Button.Content>   
                 <Button.Content hidden> 
-                  order
+                  {
+                    cart.length === 0 ? 'No items' : 'Order'
+                  }
                 </Button.Content>    
               </Button>
             }/>
@@ -94,7 +103,9 @@ const mapDispatchToProps = dispatch => {
     },
     handleSearchTyping : (e, data) => {
       dispatch(filterByName(data.value))
-    }
+    },
+    dispatchDropCart : () => dispatch(removeAllItems()),
+    dispatchDropFilter: () => dispatch(dropFilter())
   }
 }
 

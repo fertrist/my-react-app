@@ -116,15 +116,6 @@ const AccordionMenu = ({
 
         <Menu.Item>
           <RangeInput ref={(node) => rangeInput = node}/>
-
-
-          <RangeInput label={`Max price: $${filterPrice.max}`}
-              value={filterPrice.max}
-              priceRange={priceRange}
-              onChange={(e, data) => {
-                dispatchChange({ max : filterPrice.max})
-              }
-            }/>
         </Menu.Item>
       </Accordion>
     )
