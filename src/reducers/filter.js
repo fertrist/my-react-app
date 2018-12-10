@@ -59,15 +59,13 @@ const emptyFilter = {
 	brands : [],
 	types : [],
 	nameSegment : '',
-	price : {min: 120, max: 630},
+	price: defaultPriceFilter
 }
 
 const filterCompoundReducer = (state = emptyFilter, action) => {
 	switch(action.type) {
 		case 'DROP_FILTER':
-			let newState = {...emptyFilter}
-			console.log('filter was dropped', newState)
-      		return newState
+			return {...emptyFilter, price: action.priceRange}
 		default:
 			return combineReducers({
 				brands : brandsReducer,

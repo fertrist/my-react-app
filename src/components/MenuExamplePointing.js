@@ -2,35 +2,19 @@ import React from 'react'
 import { Input, Menu, Button, Icon } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { filterByTypes, filterByName, removeAllItems, dropFilter } from '../actions'
-import ScrollingModal from './ScrollingContentModal'
-
-const CartButton = ({cart}) => {
-  return (
-    <Button 
-      style={{marginRight: 0}}
-      animated='vertical' 
-      secondary>
-    <Button.Content hidden> 
-      Order 
-    </Button.Content>
-    <Button.Content visible>
-      <Icon name='cart' size='big' />
-        {cartSum(cart)}
-    </Button.Content>
-  </Button>
-    )
-}
+import CartContent from './ScrollingContentModal'
 
 const MenuExamplePointing = ({
   types,
   cart,
+  priceRange,
   activeItem,
+  nameSegment,
   handleMenuItemClick,
   handleSearchTyping,
   dispatchDropCart,
-  dispatchDropFilter,
+  dispatchDropFilters,
 }) => {
-    console.log(cart)
     return (
       <div>
         <Menu pointing inverted>
@@ -49,12 +33,13 @@ const MenuExamplePointing = ({
               <Input
                 icon='search'
                 placeholder='Search...'
+                value={nameSegment}
                 onChange={handleSearchTyping} />
             </Menu.Item>
-            <ScrollingModal 
+            <CartContent 
             cartItems={cart}
             dispatchDropCart={dispatchDropCart}
-            dispatchDropFilter={dispatchDropFilter}
+            dispatchDropFilters={() => dispatchDropFilters(priceRange)}
             trigger={
               <Button style={{marginRight: 0}}
                     animated='vertical' 
@@ -92,7 +77,9 @@ const mapStateToProps = state => {
   return {
     activeItem: getActiveItem(state.filter.types),
     types: state.types,
-    cart: state.cart
+    cart: state.cart,
+    priceRange : state.priceRange,
+    nameSegment : state.filter.nameSegment
   }
 }
 
@@ -105,7 +92,7 @@ const mapDispatchToProps = dispatch => {
       dispatch(filterByName(data.value))
     },
     dispatchDropCart : () => dispatch(removeAllItems()),
-    dispatchDropFilter: () => dispatch(dropFilter())
+    dispatchDropFilters: (priceRange) => dispatch(dropFilter(priceRange))
   }
 }
 

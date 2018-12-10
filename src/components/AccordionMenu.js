@@ -85,8 +85,6 @@ const AccordionMenu = ({
   dispatchDropFilters,
   dispatchChange
 }) => {
-    let rangeInput = undefined
-
     return (
       <Accordion 
         as={Menu} vertical inverted>
@@ -95,10 +93,7 @@ const AccordionMenu = ({
             <Header inverted as='h3'>
               <span>Filter</span>
               <span style={{float: 'right'}}>
-                <Icon onClick={() => {
-                    dispatchDropFilters()
-                  }
-                } name='trash alternate'/>
+                <Icon onClick={ () => dispatchDropFilters(priceRange)} name='trash alternate'/>
               </span>
             </Header>
           </div>   
@@ -115,7 +110,7 @@ const AccordionMenu = ({
         </Menu.Item>
 
         <Menu.Item>
-          <RangeInput ref={(node) => rangeInput = node}/>
+          <RangeInput />
         </Menu.Item>
       </Accordion>
     )
@@ -130,8 +125,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return { 
-    dispatchDropFilters: () => {
-      dispatch(dropFilter())
+    dispatchDropFilters: (priceRange) => {
+      dispatch(dropFilter(priceRange))
     },
     dispatchChange: (price) => {
       dispatch(filterByPrices(price))

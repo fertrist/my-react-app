@@ -49,8 +49,9 @@ export const filterByName = (nameSegment) => ({
   nameSegment
 })
 
-export const dropFilter = () => ({
-  type: 'DROP_FILTER'
+export const dropFilter = (priceRange) => ({
+  type: 'DROP_FILTER',
+  priceRange
 })
 
 // TODO simulate api requests

@@ -1,28 +1,12 @@
-import _ from 'lodash'
 import React, {Component} from 'react'
-import { Button, Header, Icon, Image, Modal, Item } from 'semantic-ui-react'
-
-const toCartItem = (cartItem) => {
-  const item = cartItem.item
-  return (
-    <Item key={item.id}>
-      <Item.Image size='tiny' src={item.url} />
-      <Item.Content verticalAlign='middle'>
-        <Item.Header as='a'>{item.name}</Item.Header>
-        <Item.Meta>{item.description}</Item.Meta>
-        <Item.Description>
-        {item.name}:{item.price}x{cartItem.count}={cartItem.price}
-        </Item.Description>
-      </Item.Content>
-    </Item> 
-    )
-}
+import { Button, Icon, Modal } from 'semantic-ui-react'
+import Table from './CartTable'
 
 class NestedModal extends Component {
   constructor(props){
     super(props)
-    const {dispatchDropCart, dispatchDropFilter, cartItems} = props
-    this.state = {dispatchDropCart, dispatchDropFilter, cartItems, open: false }
+    const {dispatchDropCart, dispatchDropFilters, cartItems} = props
+    this.state = {dispatchDropCart, dispatchDropFilters, cartItems, open: false }
   }
 
   open = () => this.setState({ open: true })
@@ -39,7 +23,7 @@ class NestedModal extends Component {
             this.state.cartItems.length===0 ? null :
             <Button secondary onClick={() => {
                 this.state.dispatchDropCart()
-                this.state.dispatchDropFilter()
+                this.state.dispatchDropFilters()
                 this.setState({...this.state, cartItems: []})
               }
             }>
@@ -57,41 +41,11 @@ class NestedModal extends Component {
 
 }
 
-class NestedModalComponent extends Component {
-  state = { open: false }
-
-  open = () => this.setState({ open: true })
-  close = () => this.setState({ open: false })
-
-  render() {
-    const { open } = this.state
-
-    return (
-      <Modal
-        open={open}
-        onOpen={this.open}
-        onClose={this.close}
-        size='small'
-        trigger={
-          <Button primary icon>
-            Proceed <Icon name='right chevron' />
-          </Button>
-        }
-      >
-        <Modal.Header>Order was submitted</Modal.Header>
-        <Modal.Actions>
-          <Button icon='check' content='All Done' onClick={this.close} />
-        </Modal.Actions>
-      </Modal>
-    )
-  }
-}
-
 const ModalExampleScrollingContent = ({
   trigger,
   cartItems,
   dispatchDropCart,
-  dispatchDropFilter
+  dispatchDropFilters
 }) => {
   return (
   <Modal trigger={trigger}>
@@ -105,15 +59,12 @@ const ModalExampleScrollingContent = ({
       </span>
     </Modal.Header>
     <Modal.Content image scrolling>
-      <Item.Group divided>
-        {
-          cartItems.map(cartItem => toCartItem(cartItem))
-        }
-      </Item.Group>
+      <Table items={cartItems}/>
+      
     </Modal.Content>
     <Modal.Actions>
       <NestedModal dispatchDropCart={dispatchDropCart}
-        dispatchDropFilter={dispatchDropFilter}
+        dispatchDropFilters={dispatchDropFilters}
         cartItems={cartItems}/>
     </Modal.Actions>
   </Modal>
